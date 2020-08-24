@@ -7,6 +7,19 @@
     "build": "next build",
     "start": "next start"
   },
+  "lint-staged": {
+    "*.{js, jsx, json, html}": [
+      "eslint --fix"
+    ],
+    "*.{css}": [
+      "prettier --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "dependencies": {
     "next": "9.5.2",
     "react": "16.13.1",
@@ -24,6 +37,8 @@
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.14.2",
     "eslint-plugin-react-hooks": "^1.4.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
     "prettier": "^1.16.4"
   }
 }
