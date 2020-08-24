@@ -1,0 +1,7 @@
+{
+  "extends": "nextjs",
+  "rules": {
+    "prettier/prettier": "error"
+  },
+  "plugins": ["prettier"]
+}
