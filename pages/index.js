@@ -8,11 +8,10 @@ const index = (props) => {
     props.userActionData();
   }, []);
 
-  index.getInitialProps = async (store) => {
+  index.getInitialProps = async () => {
     const res = await fetch('https://api.github.com/users/anmolsukki');
-    const reduxData = await store.dispatch(actionCreator.UserAction());
     const data = await res.json();
-    return { user: data, reduxData };
+    return { user: data };
   };
 
   index.getInitialProps = async () => {
@@ -50,3 +49,5 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(index);
+
+// export default index;
