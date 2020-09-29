@@ -16,7 +16,8 @@
       }
     ],
     "no-console": "off",
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "import/no-unresolved": "off"
   },
   "plugins": ["react", "import", "react-hooks", "prettier"]
 }

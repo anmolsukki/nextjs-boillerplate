@@ -1,4 +1,4 @@
-import { getPortfolios } from '../Utils/ApiAction/BpApi';
+import { getPortfolios } from '../utils/ApiAction/BpApi';
 
 const Index = (props) => {
   console.log('==props====>>>', props);
