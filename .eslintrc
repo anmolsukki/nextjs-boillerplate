@@ -1,8 +1,22 @@
 {
-  "extends": "nextjs",
+  "extends": ["nextjs", "eslint:recommended", "plugin:prettier/recommended"],
   "rules": {
-    "prettier/prettier": "error",
-    "no-console": "off"
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "components": ["Link"],
+        "specialLink": ["hrefLeft", "hrefRight"],
+        "aspects": ["invalidHref", "preferButton"]
+      }
+    ],
+    "no-console": "off",
+    "react/react-in-jsx-scope": "off"
   },
-  "plugins": ["prettier"]
+  "plugins": ["react", "import", "react-hooks", "prettier"]
 }

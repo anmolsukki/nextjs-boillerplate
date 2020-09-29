@@ -1,15 +1,14 @@
-import React from 'react';
-import App, { Container } from 'next/app';
+import App from 'next/app';
 import '../styles/globals.css';
 
 class MyApp extends App {
   render() {
-    const { Component, pageProps, auth } = this.props;
+    const { Component, pageProps } = this.props;
 
     return (
-      <Container>
-        <Component {...pageProps} auth={auth} />
-      </Container>
+      <>
+        <Component {...pageProps} />
+      </>
     );
   }
 }
