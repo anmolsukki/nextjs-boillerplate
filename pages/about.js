@@ -1,24 +1,24 @@
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { UserActions, UserDataActions } from '../redux/Actions/Action/UserAction';
+import * as actionCreator from '../redux/Actions/Action/UserAction';
 
-const About = ({ UserActions, UserDataActions, userStateData, userses }) => {
+const About = (props) => {
   const clickFunction = () => {
     const myName = 'I am anmol';
-    UserActions(myName);
+    props.UserActions(myName);
   };
 
   useEffect(() => {
-    UserDataActions();
-  });
+    props.UserDataActions();
+  }, []);
 
   return (
     <>
       <button type="button" onClick={clickFunction}>
         Click Me
       </button>
-      <div>{`Hi ${userStateData} !`}</div>
-      {userses.map((data) => {
+      <div>{`Hi ${props.userStateData} !`}</div>
+      {props.userses.map((data) => {
         return <div key={data.id}>{data.name}</div>;
       })}
     </>
@@ -34,4 +34,11 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { UserActions, UserDataActions })(About);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    UserActions: (name) => dispatch(actionCreator.UserActions(name)),
+    UserDataActions: () => dispatch(actionCreator.UserDataActions())
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(About);
