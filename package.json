@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "node server/index.js",
     "build": "next build",
-    "start": "NODE_ENV=production server/index.js"
+    "start": "NODE_ENV=production node server/index.js"
   },
   "lint-staged": {
     "*.{js, jsx, json, html}": [
