@@ -1,5 +1,5 @@
-import getConfig from 'next/config';
 import fetch from 'isomorphic-unfetch';
+import getConfig from 'next/config';
 
 const { publicRuntimeConfig } = getConfig();
 
@@ -20,7 +20,7 @@ const Index = (props) => {
 };
 
 export async function getServerSideProps() {
-  const res = await fetch(`${publicRuntimeConfig.BaseUrl}/users`);
+  const res = await fetch(`${publicRuntimeConfig.baseUrl}/users`);
   const data = await res.json();
   return { props: { data } };
 }

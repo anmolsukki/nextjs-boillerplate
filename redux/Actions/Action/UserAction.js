@@ -1,5 +1,5 @@
-import getConfig from 'next/config';
 import axios from 'axios';
+import getConfig from 'next/config';
 import * as actionTypes from '../ActionTypes';
 
 const { publicRuntimeConfig } = getConfig();
@@ -12,7 +12,7 @@ export const UserActions = (name) => async (dispatch, getState) => {
 
 export const UserDataActions = () => async (dispatch) => {
   dispatch(actionTypes.userDataInit());
-  const url = `${publicRuntimeConfig.BaseUrl}/users`;
+  const url = `${publicRuntimeConfig.baseUrl}/users`;
   return axios
     .get(url)
     .then((res) => {

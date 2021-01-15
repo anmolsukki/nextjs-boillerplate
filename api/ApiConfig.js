@@ -1,11 +1,11 @@
-import getConfig from 'next/config';
 import axios from 'axios';
-import API from '../EndPoints';
+import getConfig from 'next/config';
+import API from '../utils/EndPoints';
 
 const { publicRuntimeConfig } = getConfig();
 
 const axiosInstance = axios.create({
-  baseURL: `${publicRuntimeConfig.BaseUrl}`
+  baseURL: `${publicRuntimeConfig.baseUrl}`
 });
 
 export const getPortfolios = async () => {
