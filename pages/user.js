@@ -1,4 +1,4 @@
-import { getPortfolios } from '../api/ApiConfig';
+import { getPortfolios } from '../apis/BrApi';
 
 const Index = (props) => {
   console.log('==props====>>>', props);
