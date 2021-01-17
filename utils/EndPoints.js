@@ -1,3 +1,4 @@
 export default {
-  userPost: '/posts'
+  userPost: '/posts',
+  users: '/users'
 };

@@ -13,7 +13,7 @@ const About = (props) => {
   }, []);
 
   return (
-    <>
+    <div>
       <button type="button" onClick={clickFunction}>
         Click Me
       </button>
@@ -21,7 +21,7 @@ const About = (props) => {
       {props.userses.map((data) => {
         return <div key={data.id}>{data.name}</div>;
       })}
-    </>
+    </div>
   );
 };
 
