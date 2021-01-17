@@ -28,11 +28,7 @@ class MyDocument extends Document {
           <link rel="icon" type="image/png" sizes="512x512" href={`${publicRuntimeConfig.assetPrefix}/static/icons/icon-512x512.png`} />
           <link rel="icon" href={`${publicRuntimeConfig.assetPrefix}/favicon.ico`} type="image/x-icon" />
           <link rel="shortcut icon" href={`${publicRuntimeConfig.assetPrefix}/favicon.ico`} type="image/x-icon" />
-          {publicRuntimeConfig.NODE_ENV === 'development' ? (
-            <link rel="manifest" href={`${publicRuntimeConfig.renderUrl}/static/manifest.json`} />
-          ) : (
-            <link rel="manifest" href={`${publicRuntimeConfig.renderUrl}/static/manifest.json`} />
-          )}
+          <link rel="manifest" href={`${publicRuntimeConfig.renderUrl}/static/manifest.json`} />
         </Head>
         <body>
           <Main />
