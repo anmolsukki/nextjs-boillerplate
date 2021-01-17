@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { Provider } from 'react-redux';
 import { useStore } from '../redux/Store';
 import '../styles/404.css';
+import '../styles/error.css';
 import '../styles/globals.css';
 
 const MyApp = ({ Component, pageProps }) => {

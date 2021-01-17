@@ -1,12 +1,16 @@
 import fetch from 'isomorphic-unfetch';
 import getConfig from 'next/config';
 import Layout from '../common/Layout';
+import Error from './_error';
 
 const { publicRuntimeConfig } = getConfig();
 
 const Index = (props) => {
   console.log('==props====>>>', props);
 
+  if (props.data.length < 0) {
+    return <Error statusCode={500} />;
+  }
   return (
     <Layout>
       <div>

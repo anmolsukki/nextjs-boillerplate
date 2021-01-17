@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie';
 import axiosInstance from '../helper/ApiRequest';
-import API from '../utils/EndPoints';
+import API from '../helper/EndPoints';
 import { authHeaders } from '../utils/GlobalFunction';
 
 export const getPortfolios = async () => {

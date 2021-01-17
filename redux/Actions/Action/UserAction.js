@@ -1,4 +1,4 @@
-import API from '../../../utils/EndPoints';
+import API from '../../../helper/EndPoints';
 import * as actionTypes from '../ActionTypes';
 
 export const UserActions = (name) => async (dispatch, getState) => {
