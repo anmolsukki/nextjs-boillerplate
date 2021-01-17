@@ -1,15 +1,22 @@
+import Head from 'next/head';
 import { Provider } from 'react-redux';
 import { useStore } from '../redux/Store';
 import '../styles/globals.css';
 
-const App = ({ Component, pageProps }) => {
+const MyApp = ({ Component, pageProps }) => {
   const store = useStore(pageProps.initialReduxState);
 
   return (
-    <Provider store={store}>
-      <Component {...pageProps} />
-    </Provider>
+    <>
+      <Head>
+        <title>NextConnect</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+      </Head>
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
+    </>
   );
 };
 
-export default App;
+export default MyApp;
