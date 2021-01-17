@@ -1,9 +1,9 @@
 const withLess = require('@zeit/next-less');
 const withCSS = require('@zeit/next-css');
 const getWebpackConfig = require('./webpackConfig');
-const runtimeConfigDev = require('./.env.dev');
-const runtimeConfigProd = require('./.env.prod');
-const runtimeConfigStag = require('./.env.stag');
+const runtimeConfigDev = require('./.env.dev.json');
+const runtimeConfigProd = require('./.env.prod.json');
+const runtimeConfigStag = require('./.env.stag.json');
 
 module.exports = () => {
   const env = process.env.NODE_ENV || 'development';
