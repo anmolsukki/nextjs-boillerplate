@@ -1,6 +1,7 @@
 import fetch from 'isomorphic-unfetch';
 import getConfig from 'next/config';
 import Layout from '../common/Layout';
+import Loader from '../common/Loader';
 import Error from './_error';
 
 const { publicRuntimeConfig } = getConfig();
@@ -22,6 +23,7 @@ const Index = (props) => {
           );
         })}
       </div>
+      <Loader />
     </Layout>
   );
 };
