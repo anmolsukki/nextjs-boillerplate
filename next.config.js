@@ -6,7 +6,7 @@ const runtimeConfigProd = require('./.env.prod.json');
 const runtimeConfigStag = require('./.env.stag.json');
 
 module.exports = () => {
-  const env = process.env.NODE_ENV || 'development';
+  const env = process.env.NODE_ENV;
   const runtimeConfig = {
     development: runtimeConfigDev,
     production: runtimeConfigProd,
