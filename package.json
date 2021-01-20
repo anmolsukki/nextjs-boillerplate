@@ -55,6 +55,7 @@
     "eslint-plugin-react-hooks": "^1.4.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
-    "prettier": "^1.16.4"
+    "prettier": "^1.16.4",
+    "win-node-env": "^0.4.0"
   }
 }
