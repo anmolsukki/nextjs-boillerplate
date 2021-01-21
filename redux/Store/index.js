@@ -1,6 +1,5 @@
 import axios from 'axios';
 import getConfig from 'next/config';
-import { useMemo } from 'react';
 import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunkMiddleware from 'redux-thunk';
@@ -33,7 +32,7 @@ export const initializeStore = (preloadedState) => {
   return _store;
 };
 
-export function useStore(initialState) {
-  const store = useMemo(() => initializeStore(initialState), [initialState]);
+export function useStore(initialState = {}) {
+  const store = initializeStore(initialState);
   return store;
 }

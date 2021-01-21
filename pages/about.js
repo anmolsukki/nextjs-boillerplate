@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import * as actionCreator from '../redux/Actions/Action/UserAction';
 
@@ -7,10 +6,6 @@ const About = (props) => {
     const myName = 'I am anmol';
     props.UserActions(myName);
   };
-
-  useEffect(() => {
-    props.UserDataActions();
-  }, []);
 
   return (
     <div>
@@ -36,9 +31,13 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    UserActions: (name) => dispatch(actionCreator.UserActions(name)),
-    UserDataActions: () => dispatch(actionCreator.UserDataActions())
+    UserActions: (name) => dispatch(actionCreator.UserActions(name))
   };
+};
+
+About.getInitialProps = async ({ store }) => {
+  await store.dispatch(actionCreator.UserDataActions());
+  return {};
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(About);

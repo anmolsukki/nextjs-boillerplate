@@ -1,12 +1,16 @@
 import Head from 'next/head';
 import { Provider } from 'react-redux';
+import withRedux from 'next-redux-wrapper';
 import { useStore } from '../redux/Store';
 import '../styles/404.css';
 import '../styles/error.css';
 import '../styles/globals.css';
 
-const MyApp = ({ Component, pageProps }) => {
-  const store = useStore(pageProps.initialReduxState);
+const MyApp = ({ Component, pageProps, store }) => {
+  MyApp.getInitialProps = async ({ Component, ctx }) => {
+    const pageProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {};
+    return { pageProps };
+  };
 
   return (
     <>
@@ -21,4 +25,4 @@ const MyApp = ({ Component, pageProps }) => {
   );
 };
 
-export default MyApp;
+export default withRedux(useStore)(MyApp);
