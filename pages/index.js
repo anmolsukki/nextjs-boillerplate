@@ -9,19 +9,20 @@ const { publicRuntimeConfig } = getConfig();
 const Index = (props) => {
   console.log('==props====>>>', props);
 
-  if (props.data.length < 0) {
+  if (props.data && props.data.length < 0) {
     return <Error statusCode={500} />;
   }
   return (
     <Layout>
       <div>
-        {props.data.map((user) => {
-          return (
-            <ul key={user.id}>
-              <li>{user.name}</li>
-            </ul>
-          );
-        })}
+        {props.data &&
+          props.data.map((user) => {
+            return (
+              <ul key={user.id}>
+                <li>{user.name}</li>
+              </ul>
+            );
+          })}
       </div>
       <Loader />
     </Layout>

@@ -5,13 +5,14 @@ const Index = (props) => {
 
   return (
     <div>
-      {props.portfolio.map((user) => {
-        return (
-          <ul key={user.id}>
-            <li>{user.title}</li>
-          </ul>
-        );
-      })}
+      {props.portfolio &&
+        props.portfolio.map((user) => {
+          return (
+            <ul key={user.id}>
+              <li>{user.title}</li>
+            </ul>
+          );
+        })}
     </div>
   );
 };
