@@ -1,12 +1,12 @@
 import getConfig from 'next/config';
-import Document, { Head, Main, NextScript } from 'next/document';
+import Document, { Head, Html, Main, NextScript } from 'next/document';
 
 const { publicRuntimeConfig } = getConfig();
 
 class MyDocument extends Document {
   render() {
     return (
-      <html lang="en-US">
+      <Html lang="en-US">
         <Head>
           <meta charSet="utf-8" />
           <meta name="mobile-web-app-capable" content="yes" />
@@ -34,7 +34,7 @@ class MyDocument extends Document {
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     );
   }
 }

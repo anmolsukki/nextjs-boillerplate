@@ -1,6 +1,6 @@
+import withRedux from 'next-redux-wrapper';
 import Head from 'next/head';
 import { Provider } from 'react-redux';
-import withRedux from 'next-redux-wrapper';
 import { useStore } from '../redux/Store';
 import '../styles/404.css';
 import '../styles/error.css';
