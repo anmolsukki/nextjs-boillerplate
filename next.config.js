@@ -1,4 +1,4 @@
-const withLess = require('@zeit/next-less');
+const withSass = require('@zeit/next-sass');
 const withCSS = require('@zeit/next-css');
 const getWebpackConfig = require('./webpackConfig');
 const runtimeConfigDev = require('./.env.dev.json');
@@ -23,7 +23,7 @@ module.exports = () => {
   };
 
   config = withCSS(
-    withLess({
+    withSass({
       ...config,
       lessLoaderOptions: {
         javascriptEnabled: true
