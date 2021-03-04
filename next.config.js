@@ -13,10 +13,6 @@ module.exports = () => {
     staging: runtimeConfigStag
   };
 
-  if (typeof require !== 'undefined') {
-    require.extensions['.less'] = () => {};
-  }
-
   let config = {
     webpack: getWebpackConfig,
     publicRuntimeConfig: runtimeConfig[env]

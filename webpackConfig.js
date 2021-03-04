@@ -1,5 +1,3 @@
-const path = require('path');
-
 module.exports = (config) => {
   const webConfig = config;
   webConfig.module.rules.push(
