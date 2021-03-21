@@ -2,7 +2,7 @@ import * as actionConstant from '../../Actions/ActionConstant';
 
 const initialState = {
   users: '',
-  userArr: []
+  userArr: [],
 };
 
 export const UserReducer = (state = initialState, action) => {
@@ -10,22 +10,22 @@ export const UserReducer = (state = initialState, action) => {
     case actionConstant.USER_DATA:
       return {
         ...state,
-        users: action.name
+        users: action.name,
       };
 
     case actionConstant.GET_USER_DATA_INIT:
       return {
-        ...state
+        ...state,
       };
     case actionConstant.GET_USER_DATA_SUCCESS:
       return {
         ...state,
-        userArr: action.data
+        userArr: action.data,
       };
     case actionConstant.GET_USER_DATA_ERROR:
       return {
         ...state,
-        userArr: action.data
+        userArr: action.data,
       };
     default:
       return state;

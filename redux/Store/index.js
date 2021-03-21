@@ -1,38 +1,16 @@
 import axios from 'axios';
+import { createWrapper } from 'next-redux-wrapper';
 import getConfig from 'next/config';
-import { applyMiddleware, createStore } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import thunkMiddleware from 'redux-thunk';
-import rootReducers from '../Reducers/RootReducer';
+import { applyMiddleware, compose, createStore } from 'redux';
+import thunk from 'redux-thunk';
+import rootReducer from '../Reducers/RootReducer';
 
 const { publicRuntimeConfig } = getConfig();
-let store;
 
-function initStore(initialState) {
-  const axiosInstance = axios.create({
-    baseURL: publicRuntimeConfig.baseUrl
-  });
-  return createStore(rootReducers, initialState, composeWithDevTools(applyMiddleware(thunkMiddleware.withExtraArgument(axiosInstance))));
-}
+const axiosInstance = axios.create({
+  baseURL: publicRuntimeConfig.baseUrl,
+});
 
-export const initializeStore = (preloadedState) => {
-  let _store = store ?? initStore(preloadedState);
+const makeStore = () => createStore(rootReducer, compose(applyMiddleware(thunk.withExtraArgument(axiosInstance))));
 
-  if (preloadedState && store) {
-    _store = initStore({
-      ...store.getState(),
-      ...preloadedState
-    });
-    store = undefined;
-  }
-
-  if (typeof window === 'undefined') return _store;
-  if (!store) store = _store;
-
-  return _store;
-};
-
-export function useStore(initialState = {}) {
-  const store = initializeStore(initialState);
-  return store;
-}
+export const wrapper = createWrapper(makeStore);

@@ -14,8 +14,8 @@ class LottieComponent extends Component {
       autoplay: true,
       animationData: loadingAnimation.default,
       rendererSettings: {
-        preserveAspectRatio: 'xMidYMid slice'
-      }
+        preserveAspectRatio: 'xMidYMid slice',
+      },
     };
 
     return (
