@@ -1,12 +1,8 @@
-import { useEffect } from 'react';
+import { initializeStore } from '../redux/Store';
 import { connect } from 'react-redux';
 import * as actionCreator from '../redux/Actions/Action/UserAction';
 
 const About = (props) => {
-  useEffect(() => {
-    props.UserDataActions();
-  }, []);
-
   const clickFunction = () => {
     const myName = 'I am anmol';
     props.UserActions(myName);
@@ -37,8 +33,14 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     UserActions: (name) => dispatch(actionCreator.UserActions(name)),
-    UserDataActions: () => dispatch(actionCreator.UserDataActions()),
   };
 };
+
+export async function getServerSideProps() {
+  const reduxStore = await initializeStore();
+  const { dispatch } = await reduxStore;
+  await dispatch(actionCreator.UserDataActions());
+  return { props: { initialReduxState: reduxStore.getState() } };
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(About);

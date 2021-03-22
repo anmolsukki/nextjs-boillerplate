@@ -19,7 +19,7 @@ const Layout = ({ children }) => {
         footer {
           width: 100%;
           display: flex;
-          justify-content: space-around;
+          justify-content: center;
           padding: 1em;
           font-size: 1.2rem;
           background: tomato;
